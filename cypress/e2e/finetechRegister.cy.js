@@ -5,7 +5,7 @@ describe('Registro de usuario', () => {
     //campos de registro
    cy.get('#registerNombre').type('Cecilia Urrutia');
     cy.get('#registerEmail').type('cecilia.test@example.com');
-    cy.get('#registerContraseña').type('Cu1040dv%');
+    cy.get('#registerContraseña').type('KNY121245%');
 
    cy.contains('button', 'Registrar').click();
    cy.contains('Registro exitoso').should('be.visible');
