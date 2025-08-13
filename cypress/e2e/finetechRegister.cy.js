@@ -14,3 +14,4 @@ describe('Registro de usuario', () => {
    cy.get('#registerEmail').type(`cecilia${timestamp}@example.com`);
   });
 });
+
