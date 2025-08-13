@@ -1,14 +1,13 @@
 describe('Crear nuevo libro', ()=> {
-  it('pases', ()=> {
+  it('Crea un nuevo registro', ()=> {
     cy.visit('https://bookstorefrontend-henna.vercel.app/')
 
     cy.contains('button', 'Add New Book').click();
     //campos de crear
-
-   cy.get('#formTitle').type('La gata Sumichiko');
-    cy.get('#formAuthor').type('Keisuske Satoh');
+    cy.get('#formTitle').type('Kimetsu No Yaiba, Vol 8');
+    cy.get('#formAuthor').type('Gotoge Kyotaro');
     cy.get('#formPublishYear').type('2025');
-     cy.get('#formPrice').type('245.99');
+    cy.get('#formPrice').type('245.99');
     
 
    cy.contains('button', 'Create').click();
@@ -20,11 +19,11 @@ describe('Crear nuevo libro', ()=> {
 //npx cypress run --spec "cypress/e2e/bookstore.cy.js"
 
 describe('Upload libro existente', ()=>{
-  it('passes', ()=>{
+  it('Deberia modificar el registro Kimetsu No Yaiba', ()=>{
      cy.visit('https://bookstorefrontend-henna.vercel.app/')
 
      //si contiene
-    cy.contains('td', 'La gata Sumichiko')
+    cy.contains('td', 'Kimetsu No Yaiba, Vol 8')
       .parent('tr') // Subir al <tr> de la fila
       .within(() => {
         cy.contains('Edit').click()
@@ -33,14 +32,42 @@ describe('Upload libro existente', ()=>{
       cy.wait(500)
 
       //cambio el autor
-      cy.get('input[name="author"]').clear().type('Keisuke Sato Modificado')
+      cy.get('input[name="author"]').clear().type('Gotoge Kyotaro Modify')
       cy.contains('button', 'Save Changes').click()
 
-       cy.contains('td', 'La gata Sumichiko')
+       cy.contains('td', 'Kimetsu No Yaiba, Vol 8')
       .parent('tr')
       .within(() => {
-        cy.contains('td', 'Keisuke Sato Modificado')
+        cy.contains('td', 'Gotoge Kyotaro Modify')
       })
   })
 })
 
+describe('eliminar registro creado', ()=>{
+  it ('Debería eliminar un registro existente de la tabla', ()=>{
+     cy.visit('https://bookstorefrontend-henna.vercel.app/')
+
+     //si contiene
+    cy.contains('td', 'Kimetsu No Yaiba, Vol 8')
+      .parent('tr')
+      .within(() => {
+        //clickea en el delete
+        cy.contains('Delete').click()
+      })
+
+       //vamos a la confirmacion
+       cy.contains('Confirm Delete').should('be.visible')
+
+       //buscar en el modal
+       cy.get('button.btn.btn-danger')
+        .contains(/^Delete$/)
+        .should('be.visible')
+        .and('not.be.disabled')
+        .click({ force: true })
+        
+        //va de nuevo a la home
+        cy.visit('https://bookstorefrontend-henna.vercel.app/')
+        //no debe existir mas el book
+        cy.contains('td', 'Kimetsu No Yaiba, Vol 8').should('not.exist')
+      })
+  })
