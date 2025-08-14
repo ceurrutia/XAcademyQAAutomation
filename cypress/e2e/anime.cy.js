@@ -15,3 +15,30 @@ describe('Abrir la solapa reviews', ()=>{
     })
     
 })
+
+
+describe('Envio de email al form', ()=>{
+  it('Envio de email', ()=>{
+    cy.visit('https://ceurrutia.github.io/TTJS2025/')
+    cy.get('[name="email"]').type('test@t.com') 
+    cy.get('[name="message"]').type('Mensaje de test')
+    cy.contains('button[type="submit"]', 'Send').click()
+
+  })
+   
+})
+
+//ingresa a card con detalles y clikea
+
+describe('Ir a la card de Chainsawman', ()=>{
+  it('Card Chainsawman', ()=>{
+     cy.visit('https://ceurrutia.github.io/TTJS2025/')
+     cy.contains('Chainsawman Vol. 1')
+     .closest('.card')
+     .find('.card-link')
+     .click()
+
+    //redirige ok
+    cy.url().should('include', '/detail.html?id=2')
+  })
+})
