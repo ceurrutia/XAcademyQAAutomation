@@ -1,6 +1,6 @@
 # Programa de QA Automation – Xacademy & Santex
 
-Este repositorio contiene ejercicios, prácticas y proyectos realizados como parte del programa de formación en QA Automation dictado por Xacademy en conjunto con Santex.
+Este repositorio contiene ejercicios, prácticas y proyectos realizados como parte del programa de formación en QA Automation dictado por Xacademy.
 
 ### Contenidos del programa
 
@@ -8,13 +8,11 @@ El curso abarca los fundamentos y herramientas esenciales para el desarrollo de 
 
 ### Tecnologías y herramientas abordadas
 
-* Selenium WebDriver
 * Automatización de pruebas en navegadores.
 * Interacción con elementos del DOM.
 * Ejecución en distintos navegadores.
 * Cypress
-* Automatización de pruebas end-to-end modernas.
-* Manejo de comandos, hooks y assertions.
+* Automatización de pruebas end-to-end.
 * Validación de rutas, redirecciones y estados.
 * Técnicas de testing automatizado
 * Diseño de casos de prueba.
@@ -30,10 +28,9 @@ El curso abarca los fundamentos y herramientas esenciales para el desarrollo de 
 ### Requisitos
 
 * Node.js y npm (para Cypress)
-* Java (para Selenium)
 * Navegadores Chrome/Firefox
 * Editor de código (VS Code, IntellijIdea)
 
 ### Créditos
 
-Programa impartido por Xacademy en colaboración con Santex.
+Programa impartido por Xacademy TechnologyWithPropouse.
