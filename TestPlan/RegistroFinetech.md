@@ -5,9 +5,12 @@ URL de la Aplicación: https://ceurrutia.github.io/EducacionITfinetech/
 
 ### Herramienta de Automatización: Cypress
 
+Enlace a codigo de los tests: cypress/e2e/finetechRegister.cy.js
+
 2. Casos de Prueba
 
 * Caso de Prueba 1: 
+
 ### Registro Exitoso con Contraseña Válida
 
 Objetivo: Validar que un nuevo usuario puede registrarse exitosamente y ser redirigido a la página de transacciones.
