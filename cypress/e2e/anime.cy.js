@@ -6,8 +6,8 @@ describe('Abrir la solapa reviews', ()=>{
 
         cy.url().then((currentUrl) => {
       if (currentUrl.includes('/testimonials.html')) {
-        cy.log('Se ha redirigido a testimonials corregcatmente.html');
-        cy.url().should('include', '/testimonials.html');
+        cy.log('Se ha redirigido a testimonials corregcatmente.html')
+        cy.url().should('include', '/testimonials.html')
       } else {
         cy.log('No se dirigio, algo fallo')
       }
