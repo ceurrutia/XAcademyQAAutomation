@@ -1,5 +1,5 @@
-describe('Ingresa y simula compra de manga', ()=>{
-  it('Debería redirigir a la página de detalles de Chainsawman', ()=>{
+describe('Ingresa y simula compra completa de manga', ()=>{
+  it('Debería simular la compra del manga Kimetsu No yaiba', ()=>{
      cy.visit('https://ceurrutia.github.io/TTJS2025/')
      cy.contains('Kimetsu No Yaiba - Infinity Castle Movie I')
      .closest('.card')
@@ -19,6 +19,9 @@ describe('Ingresa y simula compra de manga', ()=>{
 
     //verifica la alert
       cy.get('@windowAlert').should('be.calledWith', 'Kimetsu No Yaiba - Infinity Castle Movie I added to your cart.')
+
+    cy.visit('https://ceurrutia.github.io/TTJS2025/cart.html')
+    cy.contains('.btn', 'Buy').click()
 
   })
 })
