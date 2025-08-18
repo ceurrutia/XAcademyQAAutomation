@@ -3,8 +3,8 @@ describe('Login de usuario', () => {
     cy.visit('https://ceurrutia.github.io/EducacionITfinetech/');
 
     //inputs de login y el click
-    cy.get('#loginEmail').type('test@t.com');
-    cy.get('#loginContraseña').type('Cu1040dv%');
+    cy.get('#loginEmail').type('cecilia.test@example.com');
+    cy.get('#loginContraseña').type('KNY121245%');
     cy.contains('button', 'Ingresar').click();
 
     // 1 seg de wait
