@@ -30,7 +30,7 @@ describe('Envio de email al form', ()=>{
 
 //ingresa a card con detalles y clikea
 
-describe('Ir a la card de Chainsawman', ()=>{
+describe('Ingresa a card con detalles y clikea', ()=>{
   it('Card Chainsawman', ()=>{
      cy.visit('https://ceurrutia.github.io/TTJS2025/')
      cy.contains('Chainsawman Vol. 1')
