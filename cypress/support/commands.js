@@ -1,25 +1,20 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//commands para registro y login de usuario finetech
+
+Cypress.Commands.add('registerAndLogin', (email, password, name) => {
+  cy.visit('https://ceurrutia.github.io/EducacionITfinetech/')
+
+  // Registro de usuario
+  cy.get('#registerNombre').type(name)
+  cy.get('#registerEmail').type(email)
+  cy.get('#registerContraseña').type(password)
+  cy.contains('button', 'Registrar').click()
+  cy.contains('Registro exitoso').should('be.visible')
+
+  // Login del usuario
+  cy.get('#loginEmail').type(email)
+  cy.get('#loginContraseña').type(password)
+  cy.contains('button', 'Ingresar').click()
+  
+  // Verificación de redirección
+  cy.url().should('include', '/transacciones.html')
+});
