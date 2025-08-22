@@ -1,18 +1,32 @@
-describe('Crear nuevo libro', ()=> {
+describe('Crear nuevo libro', {testIsolation : false} ,()=> {
   it('Crea un nuevo registro', ()=> {
     cy.visit('https://bookstorefrontend-henna.vercel.app/')
 
-    cy.contains('button', 'Add New Book').click();
+    cy.contains('button', 'Add New Book').click()
     //campos de crear
-    cy.get('#formTitle').type('Kimetsu No Yaiba, Vol 8');
-    cy.get('#formAuthor').type('Gotoge Kyotaro');
-    cy.get('#formPublishYear').type('2025');
-    cy.get('#formPrice').type('245.99');
+    cy.get('#formTitle').type('Kimetsu No Yaiba, Vol 8')
+    cy.get('#formAuthor').type('Gotoge Kyotaro')
+    cy.get('#formPublishYear').type('2025')
+    cy.get('#formPrice').type('245.99')
     
 
-   cy.contains('button', 'Create').click();
-   cy.contains('The book was created successfully!').should('be.visible');
+   cy.contains('button', 'Create').click()
+   cy.contains('The book was created successfully!').should('be.visible')
   })
+})
+
+
+describe('Create new Book', () => {
+    it('User must be create a new book', ()=>{
+       cy.fixture('bookstoreCreate').then((book) => {
+            cy.create(book.Title, book.Author, book.PublishYear, book.Price)
+                .then(() => { 
+                    cy.contains('The book was created successfully!').should('be.visible')
+                    cy.log('El libro ha sido creado correctamente')
+                    cy.wait(1000)
+                });
+        });
+    });
 })
 
 //correr un solo test con run

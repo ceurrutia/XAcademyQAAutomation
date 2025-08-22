@@ -16,3 +16,4 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import './LoginFinetech/commands'
+import './Bookstore/commands'
